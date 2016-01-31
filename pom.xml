@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- project元素是根元素 -->
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+        <!-- 指定了当前POM模型的版本，对maven2和3来说只能4.0.0 -->
+        <modelVersion>4.0.0</modelVersion>
+
+        <!-- 下面3个元素定义了一个项目基本的坐标 -->
+        <groupId>com.wb.ibatis</groupId>       <!-- groupId定义了项目属于哪个组 -->
+        <artifactId>ibatis-wb</artifactId>    <!-- artifactId定义了当前Maven项目在组中唯一的ID，一般是模块名 -->
+        <version>1.0.0</version>         <!-- version指定了项目当前的版本 -->
+        <packaging>jar</packaging>         <!-- 打包方式，默认jar -->        
+        <name>iBATIS WB</name>  <!-- 声明一个对于用户更为友好的项目名称，不是必须的 -->
+
+		<repositories>
+	        <repository>
+	            <id>nexus</id>
+	            <name>Nexus</name>
+	            <url>http://127.0.0.1:8081/nexus/content/groups/public</url>
+	            <releases><enabled>true</enabled></releases>
+	            <snapshots><enabled>true</enabled></snapshots>
+	        </repository>
+	    </repositories>
+	    
+	    <pluginRepositories>
+	        <pluginRepository>
+	            <id>nexus</id>
+	            <name>Nexus</name>
+	            <url>http://127.0.0.1:8081/nexus/content/groups/public</url>
+	            <releases><enabled>true</enabled></releases>
+	            <snapshots><enabled>true</enabled></snapshots>
+	        </pluginRepository>
+	    </pluginRepositories>
+
+        <properties>
+			<slf4j.version>1.7.10</slf4j.version>
+        	<logback.version>1.1.2</logback.version>
+			<junit.version>4.7</junit.version>
+			<jdk.version>1.7</jdk.version>
+			
+			<!-- 使用UTF-8来解析源码 -->
+			<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+			<!-- maven时间戳格式，使用maven.build.timestamp时触发 -->
+			<maven.build.timestamp.format>yyyy-MM-dd_HH_mm</maven.build.timestamp.format>
+		</properties>
+
+		<dependencies>
+							
+			<dependency>
+				<groupId>cglib</groupId>
+				<artifactId>cglib</artifactId>
+				<version>2.2</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>commons-logging</groupId>
+				<artifactId>commons-logging</artifactId>
+				<version>1.1.1</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>log4j</groupId>
+				<artifactId>log4j</artifactId>
+				<version>1.2.16</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>commons-dbcp</groupId>
+				<artifactId>commons-dbcp</artifactId>
+				<version>1.4</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>opensymphony</groupId>
+				<artifactId>oscache</artifactId>
+				<version>2.4.1</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>javax.transaction</groupId>
+				<artifactId>jta</artifactId>
+				<version>1.1</version>
+			</dependency>
+
+
+<!--             	        
+	        <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-classic</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            
+            <dependency>
+                <groupId>ch.qos.logback</groupId>
+                <artifactId>logback-core</artifactId>
+                <version>${logback.version}</version>
+            </dependency>
+            
+            <dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+				<scope>test</scope>
+			</dependency>
+			
+--> 
+			
+		</dependencies>
+		
+		<build>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>3.0</version>
+					<configuration>
+						<source>${jdk.version}</source>
+						<target>${jdk.version}</target>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-resources-plugin</artifactId>
+					<version>2.6</version>
+					<configuration>
+						<encoding>UTF-8</encoding>
+					</configuration>
+				</plugin>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-site-plugin</artifactId>
+					<version>3.1</version>
+				</plugin>
+			</plugins>
+		</build>
+</project>
