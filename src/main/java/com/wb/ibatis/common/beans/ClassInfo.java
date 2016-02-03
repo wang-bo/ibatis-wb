@@ -511,7 +511,7 @@ public class ClassInfo {
 	}
 
 	/**
-	 * 返回JavaBean中可读的属性名称列表
+	 * 返回JavaBean中可读的属性名称数组
 	 * @return
 	 */
 	public String[] getReadablePropertyNames() {
@@ -519,7 +519,7 @@ public class ClassInfo {
 	}
 
 	/**
-	 * 返回JavaBean中可写的属性名称列表
+	 * 返回JavaBean中可写的属性名称数组
 	 * @return
 	 */
 	public String[] getWriteablePropertyNames() {
