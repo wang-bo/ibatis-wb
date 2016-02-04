@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<test desc="测试DomProbe类用">
+	<school name="六石中心小学" address="六石中心小学在红绿灯附近" />
+	<school name="六石幼儿园" address="六石幼儿园在菜市场边上">
+		<class name="小班" desc="3岁小朋友上小班">
+			<student name="王大锤" address="樟村">王大锤是樟村人</student>
+			<student name="王中锤" address="鹤峰">王中锤是鹤峰人</student>
+			<student name="王小锤" address="六石" type="com.wb.ibatis.common.beans.DomProbeTest">王小锤是六石人</student>
+		</class>
+		<class name="中班" desc="4岁小朋友上中班">
+		</class>
+		<class name="大班" desc="5岁小朋友上大班">
+		</class>
+	</school>
+	<factory name="六石丝绸厂" desc="六石丝绸厂还在吗？">
+		<team name="技工一组"></team>
+		<team name="技工二组"></team>
+		<team name="技工三组"></team>
+	</factory>
+	<factory name="六石家俬厂" desc="六石家俬厂是我胡编的">
+	</factory>
+</test>
