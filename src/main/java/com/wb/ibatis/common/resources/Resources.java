@@ -114,7 +114,7 @@ public class Resources {
 	 * @return
 	 * @throws IOException
 	 */
-	public Reader getResourceAsReader(String resource) throws IOException {
+	public static Reader getResourceAsReader(String resource) throws IOException {
 		return getResourceAsReader(getClassLoader(), resource);
 	}
 	
@@ -125,7 +125,7 @@ public class Resources {
 	 * @return
 	 * @throws IOException
 	 */
-	public Reader getResourceAsReader(ClassLoader loader, String resource) throws IOException {
+	public static Reader getResourceAsReader(ClassLoader loader, String resource) throws IOException {
 		Reader reader = null;
 		if (charset == null) {
 			reader = new InputStreamReader(getResourceAsStream(loader, resource));

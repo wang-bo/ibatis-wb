@@ -84,6 +84,13 @@
 				<artifactId>jta</artifactId>
 				<version>1.1</version>
 			</dependency>
+            
+            <dependency>
+				<groupId>junit</groupId>
+				<artifactId>junit</artifactId>
+				<version>${junit.version}</version>
+				<scope>test</scope>
+			</dependency>
 
 
 <!--             	        
@@ -104,13 +111,6 @@
                 <artifactId>logback-core</artifactId>
                 <version>${logback.version}</version>
             </dependency>
-            
-            <dependency>
-				<groupId>junit</groupId>
-				<artifactId>junit</artifactId>
-				<version>${junit.version}</version>
-				<scope>test</scope>
-			</dependency>
 			
 --> 
 			
