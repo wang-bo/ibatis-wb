@@ -21,19 +21,19 @@ import com.wb.ibatis.common.resources.Resources;
 
 public class DomProbeTest {
 	
-	private static Document document;
+	private static DomProbe probe;
 	
-	private DomProbe probe;
+	private Document document;
 	
 	@BeforeClass
-	public static void initClass() throws IOException {
-		File file = Resources.getResourceAsFile("test.xml");
-		document = getDocument(file);
+	public static void initClass() {
+		probe = new DomProbe();
 	}
 	
 	@Before
-	public void instantiate() {
-		probe = new DomProbe();
+	public void instantiate() throws IOException {
+		File file = Resources.getResourceAsFile("test.xml");
+		document = getDocument(file);
 	}
 
 	@Test
