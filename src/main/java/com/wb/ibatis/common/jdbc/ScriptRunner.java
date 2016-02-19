@@ -43,10 +43,11 @@ public class ScriptRunner {
 	// 错误信息输出，默认输出到标准错误输出流
 	private PrintWriter errorLogWriter = new PrintWriter(System.err);
 	
-	// SQL语句执行中的分行标志
+	// SQL语句中的分行标志，默认是";"号
 	private String delimiter = DEFAULT_DELIMITER;
-	// SQL语句执行中是否分行，默认不分行(可以兼容分行和不分行，不用设置是否分行，故注释掉)
-	// private boolean fullLineDelimiter = false;
+	// SQL语句中分行标志是否是单独一行，默认不是
+	// 这里有个疑问：就算分行标志是单独一行，默认设置也能处理，为什么还要多此一举，所以完全没必要存在这个控制符
+	private boolean fullLineDelimiter = false;
 	
 	/**
 	 * 推荐用的构造方法，使用数据库连接的构造方法
@@ -74,8 +75,7 @@ public class ScriptRunner {
 	 */
 	public void setDelimiter(String delimiter, boolean fullLineDelimiter) {
 		this.delimiter = delimiter;
-		// 可以兼容分行和不分行，不用设置是否分行，故注释掉
-		// this.fullLineDelimiter = fullLineDelimiter;
+		this.fullLineDelimiter = fullLineDelimiter;
 	}
 	
 	/**
@@ -147,9 +147,8 @@ public class ScriptRunner {
 					// do nothing
 				} else if (trimmedLine.length() < 1 || trimmedLine.startsWith("--")) {
 					// do nothing
-//				} else if (!fullLineDelimiter && trimmedLine.endsWith(getDelimiter())
-//						|| fullLineDelimiter && trimmedLine.equals(getDelimiter())) {
-				} else if (trimmedLine.endsWith(getDelimiter())) {
+				} else if (!fullLineDelimiter && trimmedLine.endsWith(getDelimiter())
+						|| fullLineDelimiter && trimmedLine.equals(getDelimiter())) {
 					command.append(line.substring(0, line.lastIndexOf(getDelimiter())));
 					command.append(" ");
 					println(command);
